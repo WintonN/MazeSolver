@@ -1,0 +1,10 @@
+# num rows, num cols
+5, 15
+# optimal path cost
+26
+# grid data
+XXXXXXXXXXXXXXX
+X   X   X   XEX
+X X X X X X X X
+XPX   X   X   X
+XXXXXXXXXXXXXXX
