@@ -138,8 +138,8 @@ def main(arglist):
                 control_env.render(persistent_state, path)
                         
             time.sleep(VISUALISE_TIME_END)
-        print(f"Maze completed! \nSolution cost: {total_cost}\nTime to find \
-              solution: {round(run_time, 10)} seconds")
+        print(f"Maze completed! \nSolution cost: {total_cost}\nTime to find" +
+              f" solution: {round(run_time, 10)} seconds")
     else:
         print("/!\\ ERROR: Level not completed after all actions performed.")
         return
