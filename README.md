@@ -62,7 +62,7 @@ This file contains two classes:
     Search - contains the various search algorithms that can be performed (i.e. BFS, DFS, IDDFS, UCS, Greedy, and 
              A start), as well as the heuristic algorithm used (euclidean distance) for informed search algorithms
     
-/!\/!\ ContainerEntry /!\/!\
+##### ContainerEntry 
 
 ~~~~~
 __init__(state, cost, action, num_actions, parent, maze_env)
@@ -78,7 +78,7 @@ in the ContainerEntry and all other relevant information (e.g. state is the new 
 current state and the cost of the action to reach the new state, ...)
 
 
-/!\/!\ Search /!\/!\
+##### Search
 
 ~~~~~
 __init__(maze_env)
