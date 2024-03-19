@@ -16,10 +16,11 @@ class ContainerEntry:
     Container used for the various search algorithms containing all pertinent 
     information to correctly sort them and determine the path used.
     """
-    def __init__(self, state, cost, action, parent, maze_env):
+    def __init__(self, state, cost, action, num_actions, parent, maze_env):
         self.state = state
         self.cost = cost
         self.action = action
+        self.num_actions = num_actions
         self.parent = parent
         self.maze_env = maze_env
 
@@ -36,7 +37,8 @@ class ContainerEntry:
                 successors.append(ContainerEntry(newState, self.cost 
                                                  + self.maze_env.
                                                  ACTION_COST[action], 
-                                                 action, self, self.maze_env))
+                                                 action, self.num_actions + 1, 
+                                                 self, self.maze_env))
         return successors
     
     def __eq__(self, obj):
@@ -77,8 +79,8 @@ class Search:
                  MazeEnv.ACTIONS)
         """
 
-        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, None, 
-                               self.maze_env)
+        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, 0, 
+                               None, self.maze_env)
         container = [start]
         visited = set([start.state])
 
@@ -109,8 +111,8 @@ class Search:
                  MazeEnv.ACTIONS)
         """
 
-        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, None, 
-                               self.maze_env)
+        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, 0, 
+                               None, self.maze_env)
         container = [start]
         visited = set([start.state])
 
@@ -141,8 +143,8 @@ class Search:
                  MazeEnv.ACTIONS)
         """
 
-        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, None, 
-                               self.maze_env)
+        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, 0,
+                               None, self.maze_env)
 
         for depth in range(1, 1000):
             container = [start]
@@ -177,8 +179,8 @@ class Search:
                  MazeEnv.ACTIONS)
         """
 
-        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, None, 
-                               self.maze_env)
+        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, 0, 
+                               None, self.maze_env)
         container = PriorityQueue()
         container.put((0, start))
         visited = {start.state: 0}
@@ -211,8 +213,8 @@ class Search:
                  MazeEnv.ACTIONS)
         """
 
-        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, None, 
-                               self.maze_env)
+        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, 0, 
+                               None, self.maze_env)
         container = PriorityQueue()
         container.put((0, start))
         visited = {start.state: 0}
@@ -245,8 +247,8 @@ class Search:
                  MazeEnv.ACTIONS)
         """
 
-        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, None, 
-                               self.maze_env)
+        start = ContainerEntry(self.maze_env.get_init_state(), 0, None, 0, 
+                               None, self.maze_env)
         container = PriorityQueue()
         container.put((0, start))
         visited = {start.state: 0}
